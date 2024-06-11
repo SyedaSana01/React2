@@ -1,23 +1,20 @@
 
 import { useState } from 'react'
-import {component} from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-class App extends component{
-  constructor(){
-    super();
-    this.state={
-      name:'sana',
-    }
-  }
-  
-}
-
-
 function App() {
   const [count, setCount] = useState(0)
+  const [user, setUser] = useState({name:{firstName:'sana',lastName:'khazi'},company:'donno'});
 
+  function change() {
+    setUser(
+      { name:{firstName:'syeda',lastName:'suhasana'},
+        company: 'I work at ZTM'}
+    );
+  }
+
+ 
   return (
     <>
       <div>
@@ -34,9 +31,10 @@ function App() {
           count is {count}
         </button>
         <p>
-          Hi {this.state.name}
+         User:{user.name.firstName} {user.name.lastName}
         </p>
-        <button>Change Name</button>
+        <p>Company:{user.company}</p>
+        <button onClick={change}>Change Name</button>
       </div>
       
     </>
